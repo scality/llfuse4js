@@ -1169,3 +1169,14 @@ Handle<Value> LLStart(const Arguments& args)
   pthread_create(&llf4js.fuse_thread, &attr, llfuse_thread, NULL);
   return scope.Close(String::New("dummy"));
 }
+
+// ---------------------------------------------------------------------------
+
+void init(Handle<Object> target)
+{
+  target->Set(String::NewSymbol("llstart"), FunctionTemplate::New(LLStart)->GetFunction());
+}
+
+// ---------------------------------------------------------------------------
+
+NODE_MODULE(llfuse4js, init)
