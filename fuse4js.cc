@@ -618,7 +618,7 @@ Handle<Value> GenericCompletion(const Arguments& args)
   sem_post(f4js.psem);  
   if (exiting) {
     pthread_join(f4js.fuse_thread, NULL);
-    uv_unref((uv_loop_t*) &f4js.async);
+    uv_unref((uv_handle_t*) &f4js.async);
     sem_close(f4js.psem);
     sem_unlink(f4js_semaphore_name().c_str());    
   }
