@@ -623,7 +623,7 @@ Handle<Value> LLGenericNoReplyCompletion(const Arguments& args)
   sem_post(llf4js.psem);  
   if (exiting) {
     pthread_join(llf4js.fuse_thread, NULL);
-    uv_unref((uv_loop_t*) &llf4js.async);
+    uv_unref((uv_handle_t*) &llf4js.async);
     sem_close(llf4js.psem);
     sem_unlink(llf4js_semaphore_name().c_str());    
   }
