@@ -1,5 +1,5 @@
 {
-  "name": "fuse4js",
+  "name": "llfuse4js",
   "version": "0.1.9",
   "author": {
     "name": "Bich C. Le",
@@ -19,7 +19,7 @@
   "engines": {
     "node": ">=0.8.6"
   },
-  "main": "./build/Release/fuse4js.node",
+  "main": "./build/Release/llfuse4js.node",
   "dependencies": {
   },
   "scripts": {
