@@ -600,6 +600,24 @@ void *llfuse_thread(void *)
 
 // ---------------------------------------------------------------------------
 
+void ConvertDate(Handle<Object> &stat,
+                 std::string name,
+                 struct timespec *out)
+{
+  Local<Value> prop = stat->Get(String::NewSymbol(name.c_str()));
+  if (!prop->IsUndefined() && prop->IsDate()) {
+    Local<Date> date = Local<Date>::Cast(prop);
+    double dateVal = date->NumberValue();              // total milliseconds
+    time_t seconds = (time_t)(dateVal / 1000.0);
+    time_t milliseconds = dateVal - (1000.0 * seconds); // remainder
+    time_t nanoseconds = milliseconds * 1000000.0;
+    out->tv_sec = seconds;
+    out->tv_nsec = nanoseconds;
+  }  
+}
+
+// ---------------------------------------------------------------------------
+
 void LLProcessReturnValue(const Arguments& args)
 {
   if (args.Length() >= 1 && args[0]->IsNumber()) {
