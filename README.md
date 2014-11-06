@@ -14,6 +14,7 @@ Linux:
     * On CentOS / RedHat: `yum install fuse-devel`
 * pkg-config tool (typically included out-of-the-box with the OS)
 * node.js 0.8.7 or later
+    * build from source of the latest version is recommended, get it here http://nodejs.org/
 
 OSX:
 * install [osxfuse](http://osxfuse.github.com/)
