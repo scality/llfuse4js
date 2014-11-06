@@ -1,8 +1,8 @@
 {
   "targets": [
         {
-          "target_name": "fuse4js",
-          "sources": [ "fuse4js.cc" ],
+          "target_name": "llfuse4js",
+          "sources": [ "llfuse4js.cc" ],
           "include_dirs": [
              '<!@(pkg-config fuse --cflags-only-I | sed s/-I//g)'
           ],
